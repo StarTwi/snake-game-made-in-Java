@@ -14,4 +14,7 @@ Requirements:
 Now go and curse that crappy game
 
 
+ALSO I KNOW NOT HOW TO CREATE FOLDERS HERE SO ME DUMB AND BARE WITH ME
+
+
 Special mention --> NightZan999 and :FalseFacePalmLaugh:
