@@ -10,13 +10,13 @@ import java.util.Random;
 
 
 public class GamePanel extends JPanel implements ActionListener {
-    static final int scwdh = 600;
-    static final int scht = 600;
-    static final int unitsz = 25;
-    static final int gmut = (scwdh * scht) / unitsz;
+    public static final int scwdh = 600;
+    public static final int scht = 600;
+    public static final int unitsz = 25;
+    public static final int gmut = (scwdh * scht) / unitsz;
     //suggest something for this one , I am confused Imao
-    static final int delay = 100;
-    final int x[] = new int[gmut];
+    public static final int delay = 100;
+    final int x[] = new int[gmut]; 
     final int y[] = new int[gmut];
     int bodypart = 3;
     int eatenfruit = 0;
@@ -27,7 +27,7 @@ public class GamePanel extends JPanel implements ActionListener {
     Timer timer;
     Random random;
 
-    GamePanel() {
+    public GamePanel() {
         random = new Random();
         this.setPreferredSize(new Dimension(scwdh, scht));
         this.setBackground(Color.BLACK);
@@ -42,8 +42,6 @@ public class GamePanel extends JPanel implements ActionListener {
         running = true;
         timer = new Timer(delay, this);
         timer.start();
-
-
     }
 
     public void paintComponent(Graphics g) {
@@ -74,8 +72,6 @@ public class GamePanel extends JPanel implements ActionListener {
     public void newfruit() {
         posxfruit = random.nextInt((int) scwdh / unitsz) * unitsz;
         posyfruit = random.nextInt((int) scht / unitsz) * unitsz;
-
-
     }
 
     public void move() {
@@ -84,16 +80,20 @@ public class GamePanel extends JPanel implements ActionListener {
             y[i] = y[i - 1];
             switch (direction) {
                 case 'U':
-                    y[0] = y[0] - unitsz;
+                    //y[0] = y[0] - unitsz;
+                    y[0] -= unitsz; 
                     break;
                 case 'D':
-                    y[0] = y[0] + unitsz;
+                    //y[0] = y[0] + unitsz;
+                    y[0] += unitsz;
                     break;
                 case 'R':
-                    x[0] = x[0] + unitsz;
+                    //x[0] = x[0] + unitsz;
+                    x[0] += unitsz; 
                     break;
                 case 'L':
-                    x[0] = x[0] - unitsz;
+                    //x[0] = x[0] - unitsz;
+                    x[0] -= unitsz; 
                     break;
             }
 
@@ -136,9 +136,6 @@ public class GamePanel extends JPanel implements ActionListener {
             if(!running){
                 timer.stop();
             }
-
-
-
         }
     }
         public void overgameImao (Graphics g){
@@ -151,6 +148,8 @@ public class GamePanel extends JPanel implements ActionListener {
                 checkfruit();
                 onCollision();
             }
+            else return False; 
+            // we don't want to repaint if the game isn't running
             repaint();
 
         }
