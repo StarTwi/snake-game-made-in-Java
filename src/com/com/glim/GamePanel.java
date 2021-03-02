@@ -16,8 +16,8 @@ public class GamePanel extends JPanel implements ActionListener {
     public static final int gmut = (scwdh * scht) / unitsz;
     //suggest something for this one , I am confused Imao
     public static final int delay = 100;
-    final int x[] = new int[gmut]; 
-    final int y[] = new int[gmut];
+    final int[] x = new int[gmut];
+    final int[] y = new int[gmut];
     int bodypart = 3;
     int eatenfruit = 0;
     int posxfruit;
@@ -70,8 +70,8 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     public void newfruit() {
-        posxfruit = random.nextInt((int) scwdh / unitsz) * unitsz;
-        posyfruit = random.nextInt((int) scht / unitsz) * unitsz;
+        posxfruit = random.nextInt(scwdh / unitsz) * unitsz;
+        posyfruit = random.nextInt(scht / unitsz) * unitsz;
     }
 
     public void move() {
@@ -143,12 +143,12 @@ public class GamePanel extends JPanel implements ActionListener {
         }
         @Override
         public void actionPerformed (ActionEvent e){
-            if (running == true) {
+            if (running) {
                 move();
                 checkfruit();
                 onCollision();
             }
-            else return False; 
+
             // we don't want to repaint if the game isn't running
             repaint();
 
